@@ -645,7 +645,8 @@ html, body {
     <div class="photo-previews" id="photoPreviews"></div>
 
     <label class="flabel">Votre WhatsApp *</label>
-    <input class="finput" type="tel" id="aPhone" placeholder="Ex: 253 77 xx xx xx">
+    <input class="finput" type="tel" id="aPhone" placeholder="Ex: 25377011350 (avec 253 devant)">
+<div style="font-size:12px;color:#888;margin-top:-10px;margin-bottom:14px">⚠️ Commencez toujours par <strong>253</strong> — Ex: 25377011350</div>
 
     <label class="flabel" style="margin-bottom:10px">Option de mise en avant <span style="color:var(--text3);font-weight:400">(optionnel)</span></label>
     <div class="bopt sel" id="b0" onclick="selBoost('b0','gratuit','0')">
@@ -849,7 +850,11 @@ function showDetail(raw){
   document.getElementById('dTitle').textContent=a.titre;
   document.getElementById('dChips').innerHTML='<span class="chip">📍 '+a.ville+'</span><span class="chip">'+a.categorie+'</span><span class="chip">'+ago(a.created_at)+'</span>';
   document.getElementById('dDesc').textContent=a.description||'';
-  var phone=(a.telephone||WA).replace(/\D/g,'');
+  var rawPhone = (a.telephone || WA).replace(/\D/g,'');
+  // Ajoute 253 si le numéro ne commence pas déjà par 253
+  var phone = rawPhone;
+  if(rawPhone.length <= 8) phone = '253' + rawPhone;
+  else if(!rawPhone.startsWith('253')) phone = '253' + rawPhone;
   var msg='Bonjour, je suis intéressé(e) par votre annonce sur Suuq.DJ : "'+a.titre+'"';
   document.getElementById('dWaBtn').onclick=function(){window.open('https://wa.me/'+phone+'?text='+encodeURIComponent(msg),'_blank');};
   document.getElementById('detailOverlay').classList.add('open');
