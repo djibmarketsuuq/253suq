@@ -228,144 +228,100 @@ footer{background:var(--text);margin-top:48px;padding:40px 20px 20px}
 /* TOAST */
 .toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:var(--text);color:#fff;padding:12px 22px;border-radius:30px;font-size:13px;font-weight:500;z-index:1001;display:none;white-space:nowrap;box-shadow:var(--shadow2)}
 
-/* ===== RESPONSIVE ===== */
-@media(max-width:1050px){
-  .main{grid-template-columns:1fr}
-  .sidebar{display:none}
-}
-@media(max-width:768px){
-  .topbar{display:none}
-  .header-inner{flex-wrap:wrap;padding:10px 12px;gap:8px}
-  .logo-name{font-size:18px}
-  .btn-login{display:none}
-  .btn-sell{padding:8px 12px;font-size:13px}
-  .search-wrap{order:3;width:100%;max-width:100%;flex:0 0 100%}
-  .search-wrap select{display:none}
-  .search-btn{font-size:13px;padding:10px 14px}
-  .nav-cat{padding:9px 10px;font-size:12px}
-  .pill{padding:6px 10px;font-size:12px}
-  .main{padding:10px 12px;grid-template-columns:1fr}
-  .sidebar{display:none}
-  .grid{grid-template-columns:repeat(2,1fr);gap:10px}
-  .card-img{height:115px;font-size:34px}
-  .card-body{padding:8px 10px 10px}
-  .card-price{font-size:13px}
-  .card-title{font-size:12px}
-  .card-meta{font-size:11px}
-  .sec-title{font-size:14px}
-  .boost-banner{flex-direction:column;padding:14px;gap:12px}
-  .bb-left h3{font-size:14px}
-  .bb-left p{font-size:12px}
-  .bb-stats{justify-content:flex-start;gap:16px}
-  .btn-boost{width:100%;justify-content:center}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:20px}
-  .overlay{padding:0;align-items:flex-end}
-  .mbox.sm,.mbox.md{border-radius:20px 20px 0 0;max-height:94vh;overflow-y:auto;padding:20px 16px;width:100%;max-width:100%;margin:0}
-  .frow{grid-template-columns:1fr}
-  .finput,.fselect,.ftextarea{font-size:16px}
-  .btn-submit,.btn-cancel,.btn-wa-pay{padding:14px;font-size:15px}
-  .bopt{padding:11px 12px}
-  .plan{padding:12px}
-  .footer-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:400px){
-  .grid{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr}
+/* ── AUTH & PROFIL ── */
+.auth-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1000;align-items:center;justify-content:center;padding:16px;overflow-y:auto}
+.auth-overlay.open{display:flex}
+.auth-box{background:var(--white);border-radius:var(--radius2);padding:28px;width:100%;max-width:440px;margin:auto;animation:mup .28s ease;position:relative}
+.auth-tabs{display:flex;border:1.5px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:22px}
+.auth-tab{flex:1;padding:10px;text-align:center;font-size:14px;font-weight:600;cursor:pointer;border:none;background:var(--bg);color:var(--text2);transition:all .18s}
+.auth-tab.active{background:var(--green);color:#fff}
+.auth-msg{padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:14px;display:none}
+.auth-msg.err{background:#fff0f0;color:#c0392b;border:1px solid #fcc;display:block}
+.auth-msg.ok{background:var(--green-light);color:var(--green-dark);border:1px solid #9fe1cb;display:block}
+.btn-auth{width:100%;padding:13px;background:var(--green);color:#fff;border-radius:var(--radius);font-weight:700;font-size:15px;margin-top:4px;transition:all .2s;border:none;cursor:pointer}
+.btn-auth:hover{background:var(--green-dark)}
+.btn-auth:disabled{background:#ccc;cursor:not-allowed}
+.btn-login-nav{display:flex;align-items:center;gap:8px;cursor:pointer}
+.btn-login-nav .nav-avatar{width:32px;height:32px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
+.btn-login-nav .nav-uname{font-size:14px;font-weight:600;color:var(--green)}
+
+/* Profil modal */
+.profile-header{display:flex;align-items:center;gap:14px;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid var(--border2)}
+.profile-avatar{width:58px;height:58px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;flex-shrink:0}
+.profile-info h3{font-size:17px;font-weight:700;margin:0 0 2px}
+.profile-info p{font-size:13px;color:var(--text3);margin:0}
+.profile-section-title{font-size:12px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px}
+.my-ad-card{border:1.5px solid var(--border);border-radius:var(--radius);padding:14px;margin-bottom:10px;transition:border .18s}
+.my-ad-card:hover{border-color:var(--green)}
+.my-ad-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.my-ad-meta{font-size:12px;color:var(--text3);margin-bottom:10px}
+.my-ad-price{font-size:15px;font-weight:700;color:var(--green);margin-bottom:10px}
+.my-ad-actions{display:flex;gap:8px}
+.btn-edit-ad{flex:1;padding:8px;font-size:12px;font-weight:600;border-radius:8px;border:1.5px solid var(--green);color:var(--green);background:var(--white);cursor:pointer;transition:all .15s}
+.btn-edit-ad:hover{background:var(--green-light)}
+.btn-del-ad{flex:1;padding:8px;font-size:12px;font-weight:600;border-radius:8px;border:1.5px solid #e74c3c;color:#e74c3c;background:var(--white);cursor:pointer;transition:all .15s}
+.btn-del-ad:hover{background:#fff0f0}
+.btn-logout{width:100%;padding:11px;font-size:14px;font-weight:500;border:1.5px solid var(--border);border-radius:var(--radius);background:var(--white);color:var(--text2);cursor:pointer;margin-top:8px;transition:all .2s}
+.btn-logout:hover{background:var(--bg);color:var(--text)}
+.profile-empty{text-align:center;padding:32px 16px;color:var(--text3);font-size:13px}
+.profile-empty .ei{font-size:36px;margin-bottom:10px}
+
+/* Modal édition annonce */
+.edit-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1100;align-items:center;justify-content:center;padding:16px}
+.edit-overlay.open{display:flex}
+.edit-box{background:var(--white);border-radius:var(--radius2);padding:24px;width:100%;max-width:480px;max-height:90vh;overflow-y:auto;position:relative;animation:mup .24s ease}
+
+@media(max-width:480px){
+  .auth-box{padding:20px 16px}
+  .btn-login{display:flex!important}
 }
 
-/* ===== MOBILE FIX FORCÉ ===== */
-html, body {
-  width: 100% !important;
-  max-width: 100vw !important;
-  overflow-x: hidden !important;
+/* RESPONSIVE */
+@media(max-width:1050px){.main{grid-template-columns:1fr}.sidebar{display:none}}
+@media(max-width:768px){
+  .topbar{display:none}
+  .header-inner{flex-wrap:wrap;padding:10px 14px;gap:10px}
+  .search-wrap{order:3;flex:0 0 100%;max-width:100%}
+  .search-wrap select{display:none}
+  .main{padding:10px}
+  .grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .boost-banner{flex-direction:column;gap:14px}
+  .bb-stats{justify-content:flex-start}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .nav-cat{padding:10px 12px;font-size:12px}
+  .pill{padding:6px 12px;font-size:12px}
 }
-@media(max-width:600px){
-  .header-inner{
-    display:grid !important;
-    grid-template-columns:1fr auto !important;
-    gap:8px !important;
-    padding:10px 12px !important;
-  }
-  .search-wrap{
-    grid-column:1/-1 !important;
-    width:100% !important;
-    max-width:100% !important;
-  }
-  .search-wrap select{display:none !important}
-  .btn-login{display:none !important}
-  .logo-name{font-size:18px !important}
-  .btn-sell{padding:8px 12px !important;font-size:13px !important}
-  .main{
-    display:block !important;
-    padding:10px 12px !important;
-    width:100% !important;
-  }
-  .sidebar{display:none !important}
-  .content{width:100% !important}
-  .grid{
-    display:grid !important;
-    grid-template-columns:repeat(2,1fr) !important;
-    gap:10px !important;
-    width:100% !important;
-  }
-  .pills{
-    width:100% !important;
-    padding:0 !important;
-  }
-  .nav-cats-inner{
-    padding:0 10px !important;
-  }
-  .nav-cat{
-    padding:10px 10px !important;
-    font-size:12px !important;
-  }
-  .boost-banner{
-    flex-direction:column !important;
-    padding:14px !important;
-    gap:12px !important;
-    width:100% !important;
-  }
-  .bb-left h3{font-size:14px !important}
-  .bb-left p{font-size:12px !important}
-  .btn-boost{width:100% !important;justify-content:center !important}
-  .footer-grid{
-    grid-template-columns:1fr !important;
-    gap:20px !important;
-  }
-  footer{padding:24px 14px 14px !important}
-  .card-img{height:110px !important;font-size:32px !important}
-  .card-body{padding:8px !important}
-  .card-price{font-size:13px !important}
-  .card-title{font-size:12px !important}
-  .card-meta{font-size:11px !important}
-  .sec-title{font-size:14px !important}
-  .sec-link{font-size:12px !important}
-  .mbox.sm, .mbox.md{
-    border-radius:20px 20px 0 0 !important;
-    max-height:92vh !important;
-    overflow-y:auto !important;
-    padding:18px 14px !important;
-    margin:auto 0 0 0 !important;
-    width:100% !important;
-    max-width:100% !important;
-  }
-  .overlay{
-    align-items:flex-end !important;
-    padding:0 !important;
-  }
-  .finput,.fselect,.ftextarea{
-    font-size:16px !important;
-    padding:11px 12px !important;
-    width:100% !important;
-  }
-  .frow{grid-template-columns:1fr !important}
-  .btn-submit{padding:14px !important;font-size:15px !important;width:100% !important}
-  .btn-cancel{padding:12px !important;font-size:14px !important;width:100% !important}
-  .bopt{padding:10px 12px !important}
-  .plan{padding:12px !important}
-  .btn-wa-pay{padding:14px !important;font-size:14px !important}
-  .wa-float{bottom:16px !important;right:16px !important;width:50px !important;height:50px !important}
-  .topbar{display:none !important}
+@media(max-width:480px){
+  .grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .card-img{height:120px;font-size:36px}
+  .card-body{padding:8px 10px 10px}
+  .card-price{font-size:14px}
+  .card-title{font-size:12px}
+  .btn-login{display:none}
+  .logo-name{font-size:18px}
+  .btn-sell{padding:8px 14px;font-size:13px}
+  .footer-grid{grid-template-columns:1fr}
+  .frow{grid-template-columns:1fr}
+  .mbox{padding:16px;border-radius:16px}
+  .pub-modal{padding:16px}
+  .overlay{padding:0;align-items:flex-end}
+  .mbox.md{border-radius:20px 20px 0 0;max-height:95vh;padding:20px 16px}
+  .mbox.sm{border-radius:20px 20px 0 0;max-height:95vh}
+  .m-title{font-size:17px}
+  .finput,.fselect,.ftextarea{font-size:16px;padding:12px 13px}
+  .bopt{padding:12px}
+  .bopt-price{font-size:16px}
+  .btn-submit{padding:15px;font-size:16px}
+  .btn-cancel{padding:13px;font-size:15px}
+  .photo-upload{padding:18px 14px}
+  .plan{padding:14px}
+  .plan-price{font-size:20px}
+  .btn-wa-pay{padding:15px;font-size:15px}
+  .sec-title{font-size:15px}
+  .boost-banner{padding:16px}
+  .bb-left h3{font-size:15px}
+  .search-wrap input{font-size:16px}
+  .search-btn{padding:10px 14px;font-size:13px}
 }
 </style>
 </head>
@@ -376,7 +332,7 @@ html, body {
   <div class="topbar-left">🇩🇯 Suuq.DJ — La marketplace de Djibouti</div>
   <div class="topbar-right">
     <a onclick="openWA('Bonjour, j\'ai besoin d\'aide')">Aide</a>
-    <a onclick="showToast('Connexion bientôt disponible')">Mon compte</a>
+    <a onclick="openAuthModal()">Mon compte</a>
     <a onclick="openPublish()">Déposer une annonce</a>
   </div>
 </div>
@@ -403,7 +359,7 @@ html, body {
       <button class="search-btn" onclick="doSearch()">🔍 Rechercher</button>
     </div>
     <div class="header-actions">
-      <button class="btn-login" onclick="showToast('Connexion bientôt disponible')">Connexion</button>
+      <button class="btn-login" id="authNavBtn" onclick="openAuthModal()">Connexion</button>
       <button class="btn-sell" onclick="openPublish()">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
         Vendre
@@ -645,8 +601,7 @@ html, body {
     <div class="photo-previews" id="photoPreviews"></div>
 
     <label class="flabel">Votre WhatsApp *</label>
-    <input class="finput" type="tel" id="aPhone" placeholder="Ex: 25377011350 (avec 253 devant)">
-<div style="font-size:12px;color:#888;margin-top:-10px;margin-bottom:14px">⚠️ Commencez toujours par <strong>253</strong> — Ex: 25377011350</div>
+    <input class="finput" type="tel" id="aPhone" placeholder="Ex: 253 77 xx xx xx">
 
     <label class="flabel" style="margin-bottom:10px">Option de mise en avant <span style="color:var(--text3);font-weight:400">(optionnel)</span></label>
     <div class="bopt sel" id="b0" onclick="selBoost('b0','gratuit','0')">
@@ -692,6 +647,100 @@ html, body {
   </div>
 </div>
 
+<!-- MODAL AUTH (Connexion / Inscription) -->
+<div class="auth-overlay" id="authOverlay">
+  <div class="auth-box">
+    <button class="m-close" onclick="closeAuthModal()">✕</button>
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="tabLogin" onclick="switchAuthTab('login')">Connexion</button>
+      <button class="auth-tab" id="tabRegister" onclick="switchAuthTab('register')">Inscription</button>
+    </div>
+    <div class="auth-msg" id="authMsg"></div>
+
+    <!-- Formulaire Connexion -->
+    <div id="formLogin">
+      <label class="flabel">Numéro WhatsApp</label>
+      <input class="finput" id="loginPhone" type="tel" placeholder="25377012345" style="margin-bottom:14px">
+      <label class="flabel">Mot de passe</label>
+      <input class="finput" id="loginPass" type="password" placeholder="••••••" style="margin-bottom:14px">
+      <button class="btn-auth" id="loginBtn" onclick="doLogin()">Se connecter</button>
+    </div>
+
+    <!-- Formulaire Inscription -->
+    <div id="formRegister" style="display:none">
+      <label class="flabel">Nom complet</label>
+      <input class="finput" id="regName" type="text" placeholder="Ex: Mohamed Ali" style="margin-bottom:14px">
+      <label class="flabel">Numéro WhatsApp *</label>
+      <input class="finput" id="regPhone" type="tel" placeholder="25377012345" style="margin-bottom:4px">
+      <div style="font-size:12px;color:var(--text3);margin-bottom:14px">Ce numéro vous identifie sur Suuq.DJ</div>
+      <label class="flabel">Mot de passe</label>
+      <input class="finput" id="regPass" type="password" placeholder="Minimum 4 caractères" style="margin-bottom:14px">
+      <label class="flabel">Confirmer le mot de passe</label>
+      <input class="finput" id="regPass2" type="password" placeholder="Répétez le mot de passe" style="margin-bottom:14px">
+      <button class="btn-auth" id="registerBtn" onclick="doRegister()">Créer mon compte</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL PROFIL -->
+<div class="auth-overlay" id="profileOverlay">
+  <div class="auth-box" style="max-width:500px;max-height:90vh;overflow-y:auto">
+    <button class="m-close" onclick="closeProfileModal()">✕</button>
+    <div class="profile-header">
+      <div class="profile-avatar" id="profAvatar">?</div>
+      <div class="profile-info">
+        <h3 id="profName">—</h3>
+        <p id="profPhone">—</p>
+        <p id="profCount" style="margin-top:2px">—</p>
+      </div>
+    </div>
+    <div class="profile-section-title">Mes annonces</div>
+    <div id="myAdsList"></div>
+    <button class="btn-logout" onclick="doLogout()">🚪 Se déconnecter</button>
+  </div>
+</div>
+
+<!-- MODAL ÉDITION ANNONCE -->
+<div class="edit-overlay" id="editOverlay">
+  <div class="edit-box">
+    <button class="m-close" onclick="closeEditModal()">✕</button>
+    <div class="m-title" style="margin-bottom:16px">✏️ Modifier l'annonce</div>
+    <input type="hidden" id="editAdId">
+    <label class="flabel">Titre *</label>
+    <input class="finput" id="editTitle" type="text" style="margin-bottom:14px">
+    <div class="frow">
+      <div>
+        <label class="flabel">Catégorie *</label>
+        <select class="fselect" id="editCat" style="margin-bottom:14px">
+          <option>🚗 Véhicules</option><option>🏠 Immobilier</option>
+          <option>📱 Électronique</option><option>👗 Mode & Beauté</option>
+          <option>🛋️ Maison & Jardin</option><option>💼 Emploi</option>
+          <option>🛠️ Services</option><option>🐐 Animaux</option>
+          <option>🫙 Alimentation</option><option>⚽ Sport & Loisirs</option>
+          <option>Autre</option>
+        </select>
+      </div>
+      <div>
+        <label class="flabel">Ville *</label>
+        <select class="fselect" id="editCity" style="margin-bottom:14px">
+          <option>Djibouti-Ville</option><option>Balbala</option>
+          <option>Ali Sabieh</option><option>Tadjourah</option>
+          <option>Obock</option><option>Dikhil</option><option>Arta</option>
+        </select>
+      </div>
+    </div>
+    <label class="flabel">Prix (DJF) — laisser vide si à négocier</label>
+    <input class="finput" id="editPrice" type="number" placeholder="Ex: 50000" style="margin-bottom:14px">
+    <label class="flabel">Description *</label>
+    <textarea class="ftextarea" id="editDesc" style="margin-bottom:14px"></textarea>
+    <div class="auth-msg" id="editMsg"></div>
+    <div style="display:flex;gap:10px;margin-top:4px">
+      <button class="btn-cancel" onclick="closeEditModal()" style="flex:1">Annuler</button>
+      <button class="btn-submit" onclick="saveEditAd()" style="flex:2">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
 
@@ -701,6 +750,272 @@ var SB_URL = 'https://dikexxapbytavavrnybv.supabase.co';
 var SB_KEY = 'sb_publishable_GgsP3AQIvXVTHIxD7uIc3A_00ysoZ2R';
 var WA     = '25377215151';
 var sb     = supabase.createClient(SB_URL, SB_KEY);
+
+// ════════════════════════════════════════════════
+// SYSTÈME AUTH / PROFIL — Suuq.DJ
+// Stockage : localStorage (sans backend requis)
+// ════════════════════════════════════════════════
+var USERS_KEY   = 'suuqdj_users';
+var SESSION_KEY = 'suuqdj_session';
+
+function getUsers(){ return JSON.parse(localStorage.getItem(USERS_KEY)||'{}'); }
+function saveUsers(u){ localStorage.setItem(USERS_KEY, JSON.stringify(u)); }
+function getSession(){ return JSON.parse(localStorage.getItem(SESSION_KEY)||'null'); }
+function setSession(u){ localStorage.setItem(SESSION_KEY, JSON.stringify(u)); }
+function clearSession(){ localStorage.removeItem(SESSION_KEY); }
+
+function normalizePhone(p){ return p.replace(/\D/g,''); }
+function hashPwd(s){
+  var h=0;for(var i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0;}
+  return h.toString(16);
+}
+
+// ── Nav : met à jour le bouton Connexion/Profil ──
+function updateAuthNav(){
+  var user = getSession();
+  var btn  = document.getElementById('authNavBtn');
+  if(!btn) return;
+  if(user){
+    btn.className = '';
+    btn.style.cssText = 'background:transparent;border:none;cursor:pointer;display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:var(--radius);transition:background .2s';
+    btn.onmouseenter = function(){ this.style.background='var(--green-light)'; };
+    btn.onmouseleave = function(){ this.style.background='transparent'; };
+    btn.innerHTML =
+      '<div class="nav-avatar" style="width:32px;height:32px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">'+user.name.charAt(0).toUpperCase()+'</div>'
+      +'<span style="font-size:14px;font-weight:600;color:var(--green)">'+user.name.split(' ')[0]+'</span>';
+    btn.onclick = openProfileModal;
+  } else {
+    btn.className = 'btn-login';
+    btn.style.cssText = '';
+    btn.innerHTML = 'Connexion';
+    btn.onclick = openAuthModal;
+  }
+}
+
+// ── Ouvrir / Fermer modal Auth ──
+function openAuthModal(){
+  document.getElementById('authMsg').className='auth-msg';
+  document.getElementById('authMsg').textContent='';
+  document.getElementById('authOverlay').classList.add('open');
+}
+function closeAuthModal(){ document.getElementById('authOverlay').classList.remove('open'); }
+
+// ── Ouvrir / Fermer modal Profil ──
+function openProfileModal(){
+  var user = getSession();
+  if(!user){ openAuthModal(); return; }
+  document.getElementById('profAvatar').textContent = user.name.charAt(0).toUpperCase();
+  document.getElementById('profName').textContent   = user.name;
+  document.getElementById('profPhone').textContent  = '📱 +' + user.phone;
+  loadMyAds();
+  document.getElementById('profileOverlay').classList.add('open');
+}
+function closeProfileModal(){ document.getElementById('profileOverlay').classList.remove('open'); }
+function openAuthModal(){ // redéfini pour gérer le cas profil
+  document.getElementById('authMsg').className='auth-msg';
+  document.getElementById('authMsg').textContent='';
+  document.getElementById('authOverlay').classList.add('open');
+}
+
+// ── Tabs Connexion / Inscription ──
+var _curTab = 'login';
+function switchAuthTab(tab){
+  _curTab = tab;
+  document.getElementById('tabLogin').classList.toggle('active', tab==='login');
+  document.getElementById('tabRegister').classList.toggle('active', tab==='register');
+  document.getElementById('formLogin').style.display    = tab==='login'    ? '' : 'none';
+  document.getElementById('formRegister').style.display = tab==='register' ? '' : 'none';
+  document.getElementById('authMsg').className = 'auth-msg';
+  document.getElementById('authMsg').textContent = '';
+}
+function showAuthMsg(txt, type){
+  var el = document.getElementById('authMsg');
+  el.textContent = txt;
+  el.className   = 'auth-msg ' + (type||'err');
+}
+
+// ── Inscription ──
+function doRegister(){
+  var name  = document.getElementById('regName').value.trim();
+  var phone = normalizePhone(document.getElementById('regPhone').value);
+  var pass  = document.getElementById('regPass').value;
+  var pass2 = document.getElementById('regPass2').value;
+  if(name.length < 2)                { showAuthMsg('Entrez votre nom complet'); return; }
+  if(!phone.startsWith('253') || phone.length < 10) { showAuthMsg('Numéro invalide. Commencez par 253 (ex: 25377012345)'); return; }
+  if(pass.length < 4)                { showAuthMsg('Mot de passe trop court (min. 4 caractères)'); return; }
+  if(pass !== pass2)                 { showAuthMsg('Les mots de passe ne correspondent pas'); return; }
+  var users = getUsers();
+  if(users[phone])                   { showAuthMsg('Ce numéro est déjà inscrit. Connectez-vous.'); switchAuthTab('login'); return; }
+  users[phone] = { phone:phone, name:name, pwdHash:hashPwd(pass), createdAt:Date.now() };
+  saveUsers(users);
+  setSession({ phone:phone, name:name });
+  showAuthMsg('✅ Compte créé avec succès !', 'ok');
+  setTimeout(function(){ closeAuthModal(); updateAuthNav(); showToast('Bienvenue, '+name+' !'); }, 800);
+}
+
+// ── Connexion ──
+function doLogin(){
+  var phone = normalizePhone(document.getElementById('loginPhone').value);
+  var pass  = document.getElementById('loginPass').value;
+  var users = getUsers();
+  var user  = users[phone];
+  if(!user)                         { showAuthMsg('Numéro non trouvé. Inscrivez-vous d\'abord.'); return; }
+  if(user.pwdHash !== hashPwd(pass)){ showAuthMsg('Mot de passe incorrect.'); return; }
+  setSession({ phone:phone, name:user.name });
+  showAuthMsg('✅ Connexion réussie !', 'ok');
+  setTimeout(function(){ closeAuthModal(); updateAuthNav(); showToast('Bonjour, '+user.name+' !'); }, 700);
+}
+
+// ── Déconnexion ──
+function doLogout(){
+  clearSession();
+  closeProfileModal();
+  updateAuthNav();
+  showToast('Vous êtes déconnecté(e)');
+}
+
+// ── Mes annonces (depuis Supabase) ──
+async function loadMyAds(){
+  var user = getSession();
+  var list = document.getElementById('myAdsList');
+  var cnt  = document.getElementById('profCount');
+  if(!user){ list.innerHTML=''; return; }
+  list.innerHTML = '<div class="profile-empty"><div class="ei">⏳</div>Chargement...</div>';
+  try {
+    var {data, error} = await sb.from('annonces')
+      .select('*')
+      .eq('telephone', user.phone)
+      .eq('statut','approuve')
+      .order('created_at',{ascending:false});
+    if(error) throw error;
+    var ads = data || [];
+    cnt.textContent = ads.length + ' annonce' + (ads.length>1?'s':'') + ' publiée' + (ads.length>1?'s':'');
+    if(!ads.length){
+      list.innerHTML = '<div class="profile-empty"><div class="ei">📭</div>Vous n\'avez pas encore d\'annonces.<br><a style="color:var(--green);cursor:pointer;font-weight:600" onclick="closeProfileModal();openPublish()">Publier une annonce →</a></div>';
+      return;
+    }
+    list.innerHTML = ads.map(function(a){
+      var prix = a.prix ? parseInt(a.prix).toLocaleString('fr')+' DJF' : 'Prix à négocier';
+      return '<div class="my-ad-card" id="myad-'+a.id+'">'
+        +'<div class="my-ad-title">'+a.titre+'</div>'
+        +'<div class="my-ad-meta">'+a.categorie+' · 📍 '+a.ville+'</div>'
+        +'<div class="my-ad-price">'+prix+'</div>'
+        +'<div class="my-ad-actions">'
+        +'<button class="btn-edit-ad" onclick="openEditModal(\''+a.id+'\')">✏️ Modifier</button>'
+        +'<button class="btn-del-ad" onclick="confirmDeleteAd(\''+a.id+'\',\''+a.titre.replace(/'/g,"\\'")+'\')"">🗑️ Supprimer</button>'
+        +'</div></div>';
+    }).join('');
+  } catch(err){
+    list.innerHTML = '<div class="profile-empty"><div class="ei">⚠️</div>Erreur de chargement.</div>';
+    console.error(err);
+  }
+}
+
+// ── Supprimer une annonce ──
+async function confirmDeleteAd(id, titre){
+  if(!confirm('Supprimer "'+titre+'" ? Cette action est irréversible.')) return;
+  var user = getSession();
+  if(!user){ showToast('Vous devez être connecté(e)'); return; }
+  try {
+    var {error} = await sb.from('annonces')
+      .delete()
+      .eq('id', id)
+      .eq('telephone', user.phone); // sécurité : ne supprime que SES annonces
+    if(error) throw error;
+    var card = document.getElementById('myad-'+id);
+    if(card){ card.style.opacity='0'; card.style.transition='opacity .3s'; setTimeout(function(){ card.remove(); }, 300); }
+    showToast('✅ Annonce supprimée');
+    setTimeout(loadMyAds, 400);
+    loadAds();
+  } catch(err){
+    showToast('Erreur : '+err.message);
+    console.error(err);
+  }
+}
+
+// ── Ouvrir modal édition ──
+async function openEditModal(id){
+  try {
+    var {data, error} = await sb.from('annonces').select('*').eq('id',id).single();
+    if(error) throw error;
+    var a = data;
+    document.getElementById('editAdId').value    = a.id;
+    document.getElementById('editTitle').value   = a.titre || '';
+    document.getElementById('editCat').value     = a.categorie || '';
+    document.getElementById('editCity').value    = a.ville || '';
+    document.getElementById('editPrice').value   = a.prix || '';
+    document.getElementById('editDesc').value    = a.description || '';
+    document.getElementById('editMsg').className = 'auth-msg';
+    document.getElementById('editMsg').textContent = '';
+    document.getElementById('editOverlay').classList.add('open');
+  } catch(err){
+    showToast('Impossible de charger l\'annonce');
+    console.error(err);
+  }
+}
+function closeEditModal(){ document.getElementById('editOverlay').classList.remove('open'); }
+
+// ── Sauvegarder la modification ──
+async function saveEditAd(){
+  var user  = getSession();
+  if(!user){ showToast('Non connecté(e)'); return; }
+  var id    = document.getElementById('editAdId').value;
+  var titre = document.getElementById('editTitle').value.trim();
+  var cat   = document.getElementById('editCat').value;
+  var city  = document.getElementById('editCity').value;
+  var price = document.getElementById('editPrice').value.trim();
+  var desc  = document.getElementById('editDesc').value.trim();
+  var msgEl = document.getElementById('editMsg');
+  if(!titre){ msgEl.textContent='Le titre est obligatoire'; msgEl.className='auth-msg err'; return; }
+  if(!desc) { msgEl.textContent='La description est obligatoire'; msgEl.className='auth-msg err'; return; }
+  var btn = document.querySelector('#editOverlay .btn-submit');
+  btn.disabled=true; btn.textContent='Enregistrement...';
+  try {
+    var {error} = await sb.from('annonces')
+      .update({ titre:titre, categorie:cat, ville:city, prix:price||null, description:desc })
+      .eq('id', id)
+      .eq('telephone', user.phone); // sécurité
+    if(error) throw error;
+    msgEl.textContent='✅ Annonce modifiée !'; msgEl.className='auth-msg ok';
+    setTimeout(function(){
+      closeEditModal();
+      loadMyAds();
+      loadAds();
+    }, 700);
+  } catch(err){
+    msgEl.textContent='Erreur : '+err.message; msgEl.className='auth-msg err';
+    console.error(err);
+  } finally {
+    btn.disabled=false; btn.textContent='Enregistrer';
+  }
+}
+
+// ── Pré-remplir le téléphone lors de la publication si connecté ──
+function prefillPhoneIfLogged(){
+  var user = getSession();
+  if(user){
+    var ph = document.getElementById('aPhone');
+    if(ph && !ph.value) ph.value = user.phone;
+  }
+}
+
+// ── Fermeture des nouveaux overlays ──
+['authOverlay','profileOverlay'].forEach(function(id){
+  document.getElementById(id).addEventListener('click',function(e){ if(e.target===this) this.classList.remove('open'); });
+});
+document.getElementById('editOverlay').addEventListener('click',function(e){ if(e.target===this) closeEditModal(); });
+
+// ── Enter dans les formulaires auth ──
+['loginPhone','loginPass'].forEach(function(id){
+  document.getElementById(id).addEventListener('keydown',function(e){ if(e.key==='Enter') doLogin(); });
+});
+['regName','regPhone','regPass','regPass2'].forEach(function(id){
+  document.getElementById(id).addEventListener('keydown',function(e){ if(e.key==='Enter') doRegister(); });
+});
+
+// ── Init nav au chargement ──
+updateAuthNav();
+
 
 var EMOJIS = {'🚗 Véhicules':'🚗','🏠 Immobilier':'🏠','📱 Électronique':'📱','👗 Mode & Beauté':'👗','🛋️ Maison & Jardin':'🛋️','💼 Emploi':'💼','🛠️ Services':'🛠️','🐐 Animaux':'🐐','🫙 Alimentation':'🫙','⚽ Sport & Loisirs':'⚽','💻 Informatique':'💻','Autre':'📦'};
 function emoji(cat){ return EMOJIS[cat]||'📦'; }
@@ -850,11 +1165,7 @@ function showDetail(raw){
   document.getElementById('dTitle').textContent=a.titre;
   document.getElementById('dChips').innerHTML='<span class="chip">📍 '+a.ville+'</span><span class="chip">'+a.categorie+'</span><span class="chip">'+ago(a.created_at)+'</span>';
   document.getElementById('dDesc').textContent=a.description||'';
-  var rawPhone = (a.telephone || WA).replace(/\D/g,'');
-  // Ajoute 253 si le numéro ne commence pas déjà par 253
-  var phone = rawPhone;
-  if(rawPhone.length <= 8) phone = '253' + rawPhone;
-  else if(!rawPhone.startsWith('253')) phone = '253' + rawPhone;
+  var phone=(a.telephone||WA).replace(/\D/g,'');
   var msg='Bonjour, je suis intéressé(e) par votre annonce sur Suuq.DJ : "'+a.titre+'"';
   document.getElementById('dWaBtn').onclick=function(){window.open('https://wa.me/'+phone+'?text='+encodeURIComponent(msg),'_blank');};
   document.getElementById('detailOverlay').classList.add('open');
@@ -927,7 +1238,7 @@ function payWA(){
 }
 
 // ── PUBLISH MODAL ──
-function openPublish(){document.getElementById('publishOverlay').classList.add('open');}
+function openPublish(){document.getElementById('publishOverlay').classList.add('open');prefillPhoneIfLogged();}
 function closePublish(){document.getElementById('publishOverlay').classList.remove('open');}
 
 // ── FILTERS ──
@@ -966,7 +1277,7 @@ setInterval(function(){
 ['boostOverlay','publishOverlay','detailOverlay'].forEach(function(id){
   document.getElementById(id).addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');});
 });
-document.addEventListener('keydown',function(e){if(e.key==='Escape')['boostOverlay','publishOverlay','detailOverlay'].forEach(function(id){document.getElementById(id).classList.remove('open');});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')['boostOverlay','publishOverlay','detailOverlay'].forEach(function(id){document.getElementById(id).classList.remove('open');});if(e.key==='Escape'){['authOverlay','profileOverlay'].forEach(function(id){document.getElementById(id).classList.remove('open');});closeEditModal();}});
 document.getElementById('searchInput').addEventListener('keydown',function(e){if(e.key==='Enter')doSearch();});
 
 // ── INIT ──
